@@ -35,7 +35,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template 'users/show'
-    assert_not flash.nil?
-    assert_select "div.alert-success"
+    # 8.2.5以前のテスト
+     # assert_not flash.nil?
+     # assert_select "div.alert-success"
+    # include SessionsHelperの場合
+     # assert logged_in?
+    assert is_logged_in?
   end
 end
