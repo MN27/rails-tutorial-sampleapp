@@ -41,7 +41,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get users_path
     users.each do |user|
-      if user.activated
+      if user.activated?
         assert_select "a[href=?]", user_path(user), text: user.name
       else
         assert_select "a[href=?]", user_path(user), text: user.name, count: 0
