@@ -31,7 +31,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     assert_select 'a', text: "delete", count: 0
   end
   
-  test "should not display non-activated users on index" do
+  test "should not display non-activated users on the index" do
     users = User.all
     users.each_with_index do |user, index|
       if index % 2 == 0
